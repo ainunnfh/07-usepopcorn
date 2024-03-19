@@ -5,6 +5,8 @@ import Search from "./Search";
 import NumResult from "./NumResult";
 import ListBox from "./ListBox";
 import MovieList from "./MovieList";
+import Logo from "./Logo";
+import WatchedBox from "./WatchedBox";
 
 const tempMovieData = [
   {
@@ -32,15 +34,19 @@ const tempMovieData = [
 export default function App() {
   const [movies, setMovies] = useState(tempMovieData);
   return (
-    <Main>
+    <>
       <Navbar>
+        <Logo />
         <Search />
         <NumResult movies={movies} />
       </Navbar>
-      <Main />
-      <ListBox>
-        <MovieList movies={movies}></MovieList>
-      </ListBox>
-    </Main>
+
+      <Main>
+        <ListBox>
+          <MovieList movies={movies} />
+        </ListBox>
+        <WatchedBox />
+      </Main>
+    </>
   );
 }
