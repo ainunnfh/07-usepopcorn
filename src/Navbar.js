@@ -1,13 +1,7 @@
 import React from "react";
-import Logo from "./Logo";
 
 const Navbar = ({ children }) => {
-  return (
-    <nav className="nav-bar">
-      <Logo />
-      {children}
-    </nav>
-  );
+  return <nav className="nav-bar">{children}</nav>;
 };
 
 export default Navbar;
