@@ -1,6 +1,9 @@
 import { useState } from "react";
 import Navbar from "./Navbar";
 import Main from "./Main";
+import Search from "./Search";
+import Logo from "./Logo";
+import NumResult from "./NumResult";
 
 const tempMovieData = [
   {
@@ -29,7 +32,11 @@ export default function App() {
   const [movies, setMovies] = useState(tempMovieData);
   return (
     <>
-      <Navbar movies={movies} />
+      <Navbar movies={movies}>
+        <Logo />
+        <Search />
+        <NumResult movies={movies} />
+      </Navbar>
       <Main movies={movies} />
     </>
   );
