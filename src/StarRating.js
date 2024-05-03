@@ -1,29 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
+import Star from "./Star";
+const containerStyle = {
+  display: "flex",
+  alignItems: "center",
+  gap: "16px",
+};
 
-const StarRating = ({ maxRating = 5}) => {
-  const containerStyle = {
-    display: "flex",
-    alignItems: "center",
-    gap: "16px",
-  };
+const starStyle = {
+  display: "flex",
+};
 
-  const starStyle = {
-    display: "flex",
-    gap: "4px",
-  };
+const textStyle = {
+  lineHeight: "0",
+  margin: "0",
+};
+const StarRating = ({ maxRating = 5 }) => {
+  const [rating, setRating] = useState(1);
 
-  const textStyle = {
-    lineHeight: "0",
-    margin: "0",
-  };
+  function handleRating(rating) {
+    setRating(rating);
+  }
   return (
     <div style={containerStyle}>
       <div style={starStyle}>
         {Array.from({ length: maxRating }, (_, i) => (
-          <span key={i}>S{i + 1}</span>
+          <Star
+            key={i}
+            onRate={() => handleRating(i + 1)}
+            full={rating >= i + 1}
+          />
         ))}
       </div>
-      <p style={textStyle}>10</p>
+      <p style={textStyle}>{rating || ""}</p>
     </div>
   );
 };
