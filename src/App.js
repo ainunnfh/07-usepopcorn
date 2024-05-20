@@ -77,14 +77,6 @@ export default function App() {
             </>
           }
         ></Box>
-        {/* <Box>
-          <MovieList movies={movies} />
-        </Box>
-
-        <Box>
-          <WatchedSummary watched={watched} />
-          <WatchedMoviesList watched={watched} />
-        </Box> */}
       </Main>
     </>
   );
