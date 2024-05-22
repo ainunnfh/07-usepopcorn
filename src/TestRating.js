@@ -5,7 +5,7 @@ function TestRating() {
   const [movieRating, setMovieRating] = useState(0);
   return (
     <div>
-      <StarRating maxRating={10} color="blue" onSetRating={setMovieRating} />
+      <StarRating maxRating={10} onSetRating={setMovieRating} />
       <p>This movie was rated {movieRating} stars</p>
     </div>
   );
