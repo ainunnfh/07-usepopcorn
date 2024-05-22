@@ -16,12 +16,14 @@ const StarRating = ({
   size = "48",
   classname = "",
   messages = [],
+  onSetRating
 }) => {
   const [rating, setRating] = useState(0);
   const [tempRating, setTempRating] = useState(0);
 
   function handleRating(rating) {
     setRating(rating);
+    onSetRating(rating);
   }
 
   const textStyle = {
@@ -46,8 +48,8 @@ const StarRating = ({
         ))}
       </div>
       <p style={textStyle}>
-        {messages.length === 
-        maxRating ? messages[tempRating ? tempRating - 1 : rating - 1]
+        {messages.length === maxRating
+          ? messages[tempRating ? tempRating - 1 : rating - 1]
           : tempRating || rating || ""}
       </p>
     </div>
