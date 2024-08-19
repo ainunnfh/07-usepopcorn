@@ -56,8 +56,16 @@ const tempWatchedData = [
   },
 ];
 export default function App() {
-  const [movies, setMovies] = useState(tempMovieData);
-  const [watched, setWatched] = useState(tempWatchedData);
+  const [movies, setMovies] = useState([]);
+  const [watched, setWatched] = useState([tempWatchedData]);
+  /* Never update state in render logic bcs the component re-renders itself and it will cause infinite loop
+- disebut render logic bcs diekskusi pertama ketika komponennya baru dipasang
+- example wrong way in fetch data*/
+  fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=c85d0e72&s=interstellar`)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.Search);
+    });
 
   return (
     <>
